@@ -1,25 +1,30 @@
+// 하이퍼 텍스트 import
 const http = require('http');
+// file system import
 const fs = require('fs');
+// querystring import 
 const querystring = require('querystring');
+// path import
+const path = require('path');
 
-const cotentType = require('./mod/cotentType.js');
-const login = require('./doc/login.html');
-const loginsolt = require('./doc/loginsolt.html');
 
 let server = http.createServer((req,res) => {
+
+  let contentType = require('./mod/contentType.js');
+  let login = require('./doc/login.html');
   
   if(req.method === "GET" && req.url === "/"){
     fs.readFile(login, function(err, data){
       if (err) {
         console.error('파일을 읽지 못했습니다');
       } else {
-        res.writeHead(200, cotentType);
+        res.writeHead(200, contentType);
         res.end(data);
-        }
-      })
-  }
-
-  if(req.method === "POST" && req.url === "/loginsolt.html") {
+      }
+    })
+    
+  } else if(req.method === "POST" && req.url === "/loginsolt.html") {
+    let loginsolt = require('./doc/loginsolt.html');
     //HTML 폼 태그 작성 부분에서 method = "POST" 로 지정하는 것으로 변경
     let body = '';
     //몸통이라는 임의의 변수에 담는다 .'POST' 요청은 본문이라는 것이 존재하기 때문에  body 라는 변수에 데이터를 '담아 둔다' 라고 표현한다

@@ -1,7 +1,0 @@
-function cotentType(){ 
-  const cotentType = {
-  'Content-Type' : 'text/html',
-  'charset' : 'utf-8', }
-}
-
-module.exports = cotentType;
