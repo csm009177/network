@@ -2,6 +2,7 @@
 const fs = require('fs');
 // import hyper text
 const http = require('http');
+const queryString = require('querystring');
 const contentType = require('./mod/contentType');
 
 let main = './doc/index.html';
@@ -20,10 +21,10 @@ let server = http.createServer((req,res)=> {
     });  
   } else if (req.method=== 'POST' && req.url === '/doc/login.html'){
     let body ='';
-    
     req.on('data', (chunk) =>{
-      body = body + chunk.toString();
+      body += chunk.toString();
     })
+
     req.on('end', () => {
       const parsedBody = queryString.parse(body);
       const {username, password} = parsedBody;
@@ -32,7 +33,6 @@ let server = http.createServer((req,res)=> {
       console.log(`form 입력으로부터 받은 데이터 확인 ->`, parsedBody);
       console.log(`form 입력으로부터 받은 데이터 확인 ->`, username);
       console.log(`form 입력으로부터 받은 데이터 확인 ->`, password);
-
     })
     fs.readFile(login, 'utf8', (err, data)=> {
       if(err) {
