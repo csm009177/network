@@ -1,11 +1,21 @@
 const http = require('http');
+const fs = require('fs');
 const querystring = require('querystring');
-const login = require('login.html')
+const cotentType = require('./mod/cotentType.js');
+const login = require('./html/login.html');
+const loginsolt = require('./html/loginsolt.html');
 
 let server = http.createServer((req,res) => {
-  if(req.method === "GET" && req.url === "/login.html"){
-    res.writeHead(200,contentTpye);
-    res.end(login);
+  
+  if(req.method === "GET" && req.url === "/"){
+    fs.readFile(login, function(err, data){
+      if (err) {
+        console.error('파일을 읽지 못했습니다');
+      } else {
+        res.writeHead(200, cotentType);
+        res.end(data);
+        }
+      })
   }
 
   if(req.method === "POST" && req.url === "/loginsolt.html") {
@@ -33,7 +43,7 @@ let server = http.createServer((req,res) => {
       console.log(`form 입력으로부터 받은 데이터 확인 ->`, password);
 
       res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.end('login success!!');
+      res.end(loginsolt);
     });
   }
 })
