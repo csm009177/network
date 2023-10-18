@@ -1,10 +1,12 @@
 const http = require('http');
 const fs = require('fs');
 const querystring = require('querystring');
-let contentType = require('./mod/contentType.js');
+let contentType = require('./mod/contentType');
+let main = './doc/index.html';
+let login = './login.html'
 
 let server = http.createServer((req, res) => {
-  fs.readFile('./index.html',"utf8",(err,data)=> {
+  fs.readFile(main,"utf8",(err,data)=> {
   if(err) {
     console.log('err')
   } else {
@@ -25,12 +27,9 @@ let server = http.createServer((req, res) => {
           console.log(`form 입력으로부터 받은 데이터 확인 ->`, password);
     
           res.writeHead(200, {'Content-Type': 'text/plain'});
-          res.end();
+          res.end(login);
         });
-
       }
-    
-    
     }
   })
 })
