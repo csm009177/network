@@ -1,9 +1,11 @@
 const http = require('http');
 const querystring = require('querystring');
+const login = require('login.html')
 
 let server = http.createServer((req,res) => {
-  if(req.method === "GET" && req.url === "login.html"){
-    
+  if(req.method === "GET" && req.url === "/login.html"){
+    res.writeHead(200,contentTpye);
+    res.end(login);
   }
 
   if(req.method === "POST" && req.url === "/loginsolt.html") {
