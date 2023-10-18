@@ -2,9 +2,11 @@ const http = require('http');
 const querystring = require('querystring');
 
 let server = http.createServer((req,res) => {
+  if(req.method === "GET" && req.url === "login.html"){
+    
+  }
 
-
-  if(req.method === "POST" && req.url === "/login") {
+  if(req.method === "POST" && req.url === "/loginsolt.html") {
     //HTML 폼 태그 작성 부분에서 method = "POST" 로 지정하는 것으로 변경
     let body = '';
     //몸통이라는 임의의 변수에 담는다 .'POST' 요청은 본문이라는 것이 존재하기 때문에  body 라는 변수에 데이터를 '담아 둔다' 라고 표현한다
@@ -34,7 +36,7 @@ let server = http.createServer((req,res) => {
   }
 })
 
-let PORT = 3000;
+let PORT = 5500;
 server.listen(PORT, ()=> {
   console.log(`cli 창에서 Clt + click ->
 http://localhost:${PORT}/`)
