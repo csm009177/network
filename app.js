@@ -1,9 +1,10 @@
 const http = require('http');
 const fs = require('fs');
 const querystring = require('querystring');
+
 const cotentType = require('./mod/cotentType.js');
-const login = require('./html/login.html');
-const loginsolt = require('./html/loginsolt.html');
+const login = require('./doc/login.html');
+const loginsolt = require('./doc/loginsolt.html');
 
 let server = http.createServer((req,res) => {
   
