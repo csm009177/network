@@ -3,6 +3,7 @@ const querystring = require('querystring');
 
 let server = http.createServer((req,res) => {
 
+
   if(req.method === "POST" && req.url === "/login") {
     //HTML 폼 태그 작성 부분에서 method = "POST" 로 지정하는 것으로 변경
     let body = '';
@@ -20,6 +21,7 @@ let server = http.createServer((req,res) => {
 
     req.on('end', () => {
       const parsedBody = querystring.parse(body); //요청 본문을 파싱
+
       const { username, password} = parsedBody;
 
       console.log(`form 입력으로부터 받은 데이터 확인 ->`, parsedBody);
