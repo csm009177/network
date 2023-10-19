@@ -4,7 +4,7 @@ const queryString = require('querystring');
 
 let paths1 = './doc/index.html';
 let paths2 = './doc/login.html'; // 로그인 되고 나서 페이지
-let style1 = './st/style.css'
+let style1 = './st/style.css';
 
 let server = http.createServer((req, res)=> {
   if(req.method === 'GET' && req.url==='/') {
@@ -39,21 +39,14 @@ let server = http.createServer((req, res)=> {
       if(err) {
         console.log(err)
       } else {
-        // res.writeHead(200, { 'Content-Type': 'text/html' }); // html 
+        res.writeHead(200, { 'Content-Type': 'text/html' }); // html 
         // res.writeHead(200, { 'Content-Type': '' }); // html 
         // res.writeHead(200, { 'Content-Type': 'text/plain' }); // only 텍스트만 
-        res.writeHead(200, { 'Content-Type': 'plain/html' }); // 다운로드 
+        // res.writeHead(200, { 'Content-Type': 'plain/html' }); // 다운로드s
         res.end(data)
       }
     })
-    fs.readFile(style1, 'utf8', (err, data) => {
-      if(err) {
-        console.log(err)
-      } else {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(data)
-      }
-    })
+
   }
 });
 
