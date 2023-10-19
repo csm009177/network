@@ -1,6 +1,7 @@
 const http = require('http');
 const docMaker = require('./mod/docMaker');
-const contentType = require('./mod/contentType.js');
+const htmlContent = require('./mod/htmlContent.js');
+const cssContent = require('./mod/cssContent.js');
 
 let maindoc = docMaker('main', 'test');
 
@@ -9,11 +10,11 @@ let serv = http.createServer((req, res)=> {
   if(req.method==='GET'&&req.url==='/'){
     console.log(req.method);
     console.log(req.url);
-    res.writeHead(200, contentType);
+    res.writeHead(200, htmlContent);
     res.end(maindoc);
   } else if(req.url==='/doc/style.css'){
-    res.writeHead(200, contentType);
-    res.end()
+    res.writeHead(200, cssContent);
+    res.end('/doc/style.css')
   }
   
   
