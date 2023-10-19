@@ -1,6 +1,6 @@
 function cssContent(){
 
-  const cssContent = {
+  return cssContent = {
   'Content-Type' : 'text/css',
   'charset' : 'utf8', }
   

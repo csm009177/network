@@ -1,6 +1,6 @@
 function htmlContent(){
 
-  const htmlContent = {
+  return htmlContent = {
   'Content-Type' : 'text/html',
   'charset' : 'utf8', }
   
