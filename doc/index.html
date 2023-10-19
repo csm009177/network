@@ -4,17 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    *{margin:0; padding: 0; box-sizing: border-box;
+    background-color: rgb(66, 66, 66); color: white;}
+    #root {width: 100vw; height: 100vh; margin: auto; display: flex; flex-direction:column;background-color: rgb(58, 58, 58);}
+    #root> form{margin: auto; display: flex;flex-direction:column;}
+    #root> form >h1{margin: auto; display: flex;flex-direction:column;}
+  </style>
 </head>
 <body>
-  <h1>Login form</h1>
-  <!-- 양식이라는 이름의 form 태그는 전형적인 컨테이너 태그 중 하나이다
-  어떤 행동을 할지, 어떤 방법을 사용할지에 대한 것만 래핑한 사례이다 -->
-
-    <form action='/doc/login.html' method="POST">
+  <div id="root">
+    <form action="/doc/login.html" method="POST">
+      <h1>Login form</h1>
       Username:<br>
-      <input type="text" name="username" placeholder="User name"><br>
+      <input type="text" name="Username" placeholder="User name"><br>
       <input type="password" name="password" placeholder="password"> <br><br>
-      <input type="submit" value="Login">
+      <input type="submit" value="login">
       <!-- 제출(submit)을 진행했을 때 '요청(request)' 이벤트가 발생한다 -->
     </form>
 </body>

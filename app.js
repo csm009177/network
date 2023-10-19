@@ -4,7 +4,7 @@ const queryString = require('querystring');
 
 let paths1 = './doc/index.html';
 let paths2 = './doc/login.html'; // 로그인 되고 나서 페이지
-let style1 = './st/style.css';
+
 
 let server = http.createServer((req, res)=> {
   if(req.method === 'GET' && req.url==='/') {
