@@ -1,0 +1,33 @@
+
+function docMaker() {
+  let signUpAsset = require('./mod/signUpAsset');
+  return `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+    *{margin:0; padding: 0; box-sizing: border-box;
+      background-color: rgb(66, 66, 66); color: white;
+      align-items: center; align-content: center;}
+      #root>h1 {
+        width: 50vw; height: 50vh; margin: auto; 
+        display: flex; flex-direction:column;background-color: rgb(58, 58, 58);
+        align-items: center; align-content: center; 
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div>
+      <h1>welcome</h1>
+        ${signUpAsset.id}님 환영합니다<br>
+        당신의 비번은${signUpAsset.pw}
+      </div>
+    </div>
+  </body>
+  </html>`
+}
+
+module.exports = docMaker;
