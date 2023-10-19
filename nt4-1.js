@@ -16,7 +16,6 @@ let server = http.createServer((req, res) => {
         res.end(data);
       }
     })
-
   } 
   else if (req.method==='POST' && req.url==='/doc/login.html'){
     let body = '';
@@ -32,7 +31,7 @@ let server = http.createServer((req, res) => {
       console.log(`form 입력으로부터 받은 데이터 확인 ->`, password);
       
       // res.writeHead(200, contentType);
-      // res.end('');
+      // res.end('successful');
     });
     
     fs.readFile(login,"utf8",(err,data)=> {
