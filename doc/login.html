@@ -8,8 +8,6 @@
   *{margin:0; padding: 0; box-sizing: border-box;
     background-color: rgb(66, 66, 66); color: white;
     align-items: center; align-content: center;}
-    #root {width: 100vw; height: 100vh; margin: auto; flex-wrap: wrap;
-      display: flex; flex-direction:column;background-color: rgb(58, 58, 58);}
     #root>h1 {
       width: 50vw; height: 50vh; margin: auto; 
       display: flex; flex-direction:column;background-color: rgb(58, 58, 58);
@@ -19,8 +17,11 @@
 </head>
 <body>
   <div id="root">
+    <div>
     <h1>welcome</h1>
-    <div></div>
+      ${id}님 환영합니다<br>
+      당신의 비번은${pw}
+    </div>
   </div>
 </body>
 </html>
