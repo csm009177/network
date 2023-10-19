@@ -1,24 +1,27 @@
-
 const http = require('http');
-const fs = require('fs');
 
-let contentType =require('./mod/contentType.js');
+
+let contentType = require('./mod/contentType.js');
 let docMaker = require('./mod/docMaker.js');
 
-let main =docMaker('main', 'test', 'test1');
+let serv = http.createServer(function(req, res){
+  // doc make
+let main = docMaker(); // 문제
 
-let server = http.createServer((req,res)=> {
-  if(req.method==='GET'&& req.url==='/'){
-    res.writeHead(200, contentType);
+  // main page
+  // check mothod 
+  if(req.method==='GET' && request.url=== '/'){
+    // err find
+    res.writeHead(200, contentType)
     res.end(main);
-  }
-})
+  } 
+});
 
-let port = 2315
-server.listen(port, ()=> {
+
+let PORT = 2234;
+serv.listen(PORT, () => {
   console.log(`
-now server is running
-please click this link with Ctrl
-http://localhost:${port}
-  `)
-})
+now server is working
+please request with this link(Clt + click)
+http://localhost:${PORT}`)
+}) 
