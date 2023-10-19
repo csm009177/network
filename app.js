@@ -1,6 +1,6 @@
 const http = require('http');
 const fs = require('fs');
-
+const queryString = require('querystring');
 let paths1 = '/doc/nt3.html';
 let paths2 = '/doc/login.html';
 
