@@ -38,7 +38,10 @@ let server = http.createServer((req, res)=> {
       if(err) {
         console.log(err)
       } else {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
+        // res.writeHead(200, { 'Content-Type': 'text/html' }); // html 
+        // res.writeHead(200, { 'Content-Type': '' }); // html 
+        // res.writeHead(200, { 'Content-Type': 'text/plain' }); // only 텍스트만 
+        res.writeHead(200, { 'Content-Type': 'plain/html' }); // 다운로드 
         res.end(data)
       }
     })
