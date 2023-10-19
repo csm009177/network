@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const querystring = require('querystring');
-let contentType = require('./mod/contentType');
+let contentType = require('../mod/contentType');
 let main = './doc/index.html';
 let login = './doc/login.html';
 

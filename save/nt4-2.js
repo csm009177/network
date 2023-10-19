@@ -3,7 +3,7 @@ const fs = require('fs');
 // import hyper text
 const http = require('http');
 const queryString = require('querystring');
-const contentType = require('./mod/contentType');
+const contentType = require('../mod/contentType');
 
 let main = './doc/index.html';
 let login = './doc/login.html';
