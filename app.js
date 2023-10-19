@@ -1,6 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 const queryString = require('querystring');
+const signUp = require('./mod/signUpAsset');
+
 
 let paths1 = './doc/index.html';
 let paths2 = './doc/login.html'; // 로그인 되고 나서 페이지
@@ -25,27 +27,31 @@ let server = http.createServer((req, res)=> {
     });
 
     req.on('end', () => { 
-      const parsedBody = queryString.parse(body);
-      const {username, password} = parsedBody;
+      const praseBody = queryString.parse(body);
+      const {id, pw} = praseBody;
       // 비구조화할당 : value 바로 접근하는 방식
       // check 
-      console.log(`form 입력으로부터 받은 데이터 확인 ->`, parsedBody);
-      console.log(`form 입력으로부터 받은 데이터 확인 ->`, username);
-      console.log(`form 입력으로부터 받은 데이터 확인 ->`, password);
+      console.log(`form 입력으로부터 받은 데이터 확인 :id->`, id);
+      console.log(`form 입력으로부터 받은 데이터 확인 :pw->`, pw);
 
+      fs.readFile(paths2, 'utf8', (err, data) => {
+        if(err) {
+          console.log(err)
+        } else {
+          res.writeHead(200, { 'Content-Type': 'text/html' }); // html 
+          // res.writeHead(200, { 'Content-Type': '' }); // html 
+          // res.writeHead(200, { 'Content-Type': 'text/plain' }); // only 텍스트만 
+          // res.writeHead(200, { 'Content-Type': 'plain/html' }); // 다운로드s
+          const praseBody = queryString.parse(body);
+  
+          let idment = `${id}님 환영합니다<br>`
+          let pwment = `당신의 비번은${pw}`
+          res.end(idment+ pwment+ data)
+          
+        }
+      })
     });
 
-    fs.readFile(paths2, 'utf8', (err, data) => {
-      if(err) {
-        console.log(err)
-      } else {
-        res.writeHead(200, { 'Content-Type': 'text/html' }); // html 
-        // res.writeHead(200, { 'Content-Type': '' }); // html 
-        // res.writeHead(200, { 'Content-Type': 'text/plain' }); // only 텍스트만 
-        // res.writeHead(200, { 'Content-Type': 'plain/html' }); // 다운로드s
-        res.end(data)
-      }
-    })
 
   }
 });
