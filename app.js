@@ -1,6 +1,8 @@
 // import big module
 const http = require('http');
+const fs = require('fs');
 const docMaker = require('./mod/docMaker');
+
 
 // import contentType
 let cssContent = require('./mod/cssContent.js');
@@ -23,10 +25,16 @@ let serv = http.createServer((req, res)=> {
   else if(req.url==='/doc/style.css'){
     console.log(req.method);
     console.log(req.url);
-
-    // readfile 할 것
-    res.writeHead(200, cssContent);
-    res.end();
+    
+    fs.readFile('./doc/style.css', (err,data)=> {
+      if(err){
+        console.log(err);
+      }else {
+        res.writeHead(200, cssContent);
+        res.end(data);
+        
+      }
+    })
   } 
 
   else if (req.method==='POST'&&req.url==='/'){
