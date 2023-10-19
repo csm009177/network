@@ -6,7 +6,7 @@ let paths2 = '/doc/login.html';
 
 let server = http.createServer((req, res)=> {
   if(req.method === 'GET' && req.url==='/') {
-    fs.readFile(paths1, (err, data)=> {
+    fs.readFile(paths1, 'utf8', (err, data)=> {
       if(err) {
         console.log(err)
       } else {
@@ -28,10 +28,10 @@ let server = http.createServer((req, res)=> {
       console.log(`form 입력으로부터 받은 데이터 확인 ->`, parsedBody);
       console.log(`form 입력으로부터 받은 데이터 확인 ->`, username);
       console.log(`form 입력으로부터 받은 데이터 확인 ->`, password);
-      
+
     })
 
-    fs.readFile(paths2, (err, data) => {
+    fs.readFile(paths2, 'utf8', (err, data) => {
       if(err) {
         console.log(err)
       } else {
