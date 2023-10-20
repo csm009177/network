@@ -7,8 +7,10 @@ const docMaker = require('./mod/docMaker');
 let maindoc = docMaker('main', 'test');
 
 let serv = http.createServer((req, res)=> {
-    console.log(`-----------${req.on()}-----------------`)
-    res.end(`-----------${req.on()}-----------------`)
+  // req.on('end', () => { 
+  //   console.log(`-----------${req.on()}-----------------`)
+  //   res.end(`-----------${req.on()}-----------------`)
+  // })
 });
 
 serv.listen(8080)
