@@ -10,23 +10,17 @@ const docMaker = require("./mod/docMaker");
 const tagMaker = require("./mod/tagMaker");
 
 // make tag
-let test = tagMaker('div', 'style', 'content');
-// make doc
-let testful = docMaker('testpage', "test");
+let tag = tagMaker('div', 'style', 'content');
+// console.log(tag)
+// make doc`
+let doc = docMaker('testpage', tag);
+// console.log(doc)
 
-docMaker('testpage', tagMaker('div', 'style', 'content'));
 
-// server
-let serv = http.createServer((req,res)=> {
-  if(req.method === 'GET' && req.rul === '/'){
-    res.writeHead(200, htmlContent);
-    res.end(testful)
+let serv = http.createServer((req, res)=> {
+  if(req.method==='GET'){
+
   }
 })
 
-let port = 2317
-serv.listen(port, ()=> {
-  console.log(`server is running 
-http://localhost:${port}
-`)
-});
+serv.listen(2317);
