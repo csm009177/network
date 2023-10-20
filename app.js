@@ -20,29 +20,29 @@ let serv = http.createServer((req, res)=> {
     console.log(req.url);
     res.writeHead(200, htmlContent);
     res.end(maindoc);
-  }
-
-  else if(req.url==='/doc/style.css'){
+  } else if(req.url==='/doc/style.css'){
     console.log(req.method);
     console.log(req.url);
     
     fs.readFile('./doc/style.css', (err,data)=> {
       if(err){
         console.log(err);
-      }else {
+      } else {
         res.writeHead(200, cssContent);
         res.end(data);
         
-      }
-    })
-  } 
-
+        }
+      })
+    } 
+    
   else if (req.method==='POST'&&req.url==='/'){
     console.log(req.method);
     console.log(req.url);
   }
 });
 
+
+// serv.listen 
 let port = 2517;
 serv.listen(port, ()=>{
   console.log(`http://localhost:${port}`)
