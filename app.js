@@ -1,8 +1,9 @@
 // import big module
 const http = require('http');
 const fs = require('fs');
+const queryString = require('querystring');
 const docMaker = require('./mod/docMaker');
-
+queryString.parse()
 
 // import contentType
 let cssContent = require('./mod/cssContent.js');
@@ -10,11 +11,7 @@ let htmlContent = require('./mod/htmlContent.js');
 
 //make doc 
 let maindoc = docMaker('main', 'test');
-
 // fnc check method and url
-console.log(typeof(http.IncomingMessage))
-console.log(typeof(http.createServer()))
-console.log(typeof(http.createServer))
 
 // serv 
 let serv = http.createServer((req, res)=> {
@@ -23,6 +20,7 @@ let serv = http.createServer((req, res)=> {
     method check:${req.method}
     url check:${req.url}`);
 
+    
     res.writeHead(200, htmlContent);
     res.end(maindoc);
   } else if(req.url==='/doc/style.css'){
