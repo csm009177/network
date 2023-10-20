@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 
 function docMaker() {
   let signUpAsset = require('./mod/signUpAsset');
+=======
+function docMaker(title, contents){
+>>>>>>> prac
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>home</title>
     <style>
     *{margin:0; padding: 0; box-sizing: border-box;
@@ -26,6 +31,13 @@ function docMaker() {
         당신의 비번은${signUpAsset.pw}
       </div>
     </div>
+=======
+    <title>${title}</title>
+    <link rel="stylesheet" href="/doc/style.css" type="text/css">
+  </head>
+  <body>
+    ${contents}
+>>>>>>> prac
   </body>
   </html>`
 }
