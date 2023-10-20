@@ -11,11 +11,6 @@ let htmlContent = require("./mod/htmlContent.js");
 
 //make doc
 let maindoc = docMaker("main", "test");
-// fnc check method and url
-
-
-console.log(`data type : ${typeof(data)}`);
-
 
 // serv
 let serv = http.createServer((req, res) => {
@@ -27,6 +22,7 @@ let serv = http.createServer((req, res) => {
     
     res.writeHead(200, htmlContent);
     res.end(maindoc);
+
   } else if (req.url === "/doc/style.css") {
     //check method and url
     console.log(`
@@ -48,7 +44,6 @@ let serv = http.createServer((req, res) => {
     console.log(`
     method check : ${req.method}
     url check : ${req.url}`);
-    
   }
 });
 

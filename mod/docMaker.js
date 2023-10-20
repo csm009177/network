@@ -1,45 +1,36 @@
-<<<<<<< HEAD
-
-function docMaker() {
-  let signUpAsset = require('./mod/signUpAsset');
-=======
 function docMaker(title, contents){
->>>>>>> prac
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>home</title>
-    <style>
-    *{margin:0; padding: 0; box-sizing: border-box;
-      background-color: rgb(66, 66, 66); color: white;
-      align-items: center; align-content: center;}
-      #root>h1 {
-        width: 50vw; height: 50vh; margin: auto; 
-        display: flex; flex-direction:column;background-color: rgb(58, 58, 58);
-        align-items: center; align-content: center; 
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root">
-      <div>
-      <h1>welcome</h1>
-        ${signUpAsset.id}님 환영합니다<br>
-        당신의 비번은${signUpAsset.pw}
-      </div>
-    </div>
-=======
     <title>${title}</title>
     <link rel="stylesheet" href="/doc/style.css" type="text/css">
   </head>
   <body>
     ${contents}
->>>>>>> prac
   </body>
   </html>`
 }
 
 module.exports = docMaker;
+
+
+function cssMaker(){
+return `* {    
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  flex-wrap: wrap;
+  flex-direction: column; 
+  color: rgb(145, 145, 145);
+  background-color: rgb(19, 19, 19); 
+};
+
+body { 
+    width: 100vw;
+    height: 100vh;
+};`
+}
+
+module.exports = cssMaker;
