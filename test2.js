@@ -1,18 +1,13 @@
-function docMaker(title, contents){
+function maker(){
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title}</title>
-    <link rel="stylesheet" href="/doc/style.css" type="text/css">
+    <title>Document</title>
   </head>
   <body>
-    ${contents}
+    <h1 style="color: blue;">최성민</h1>
   </body>
   </html>`
 }
-
-module.exports = docMaker;
-
-
