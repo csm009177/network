@@ -12,12 +12,13 @@ let htmlContent = require('./mod/htmlContent.js');
 let maindoc = docMaker('main', 'test');
 
 // fnc check method and url
+console.log(typeof(http.IncomingMessage))
+console.log(typeof(http.createServer()))
+console.log(typeof(http.createServer))
 
 // serv 
 let serv = http.createServer((req, res)=> {
-  
   if(req.method==='GET'&&req.url==='/'){
-    methodAndurlCheck()
     console.log(`
     method check:${req.method}
     url check:${req.url}`);
@@ -29,7 +30,7 @@ let serv = http.createServer((req, res)=> {
     method check:${req.method}
     url check:${req.url}`)
     
-    fs.readFile('./doc/style.css', (err,data)=> {
+    fs.readFile('./doc/style.css', 'utf8', (err,data)=> {
       if(err){
         console.log(`
     readFile err check${err}`);
