@@ -3,10 +3,8 @@ const http = require("http");
 const fs = require("fs");
 const queryString = require("querystring");
 const docMaker = require("./mod/docMaker");
-queryString.parse();
 
 // import contentType
-let cssContent = require("./mod/cssContent.js");
 let htmlContent = require("./mod/htmlContent.js");
 
 //make doc
@@ -23,29 +21,24 @@ let serv = http.createServer((req, res) => {
     res.writeHead(200, htmlContent);
     res.end(maindoc);
 
-  } else if (req.url === "/doc/style.css") {
-    //check method and url
-    console.log(`
-    method check : ${req.method} 
-    url check : ${req.url}`);
-
-    fs.readFile("./doc/style.css", "utf8", (err, data) => {
-      if (err) { console.log(`readFile err check : ${err}`);
-      } else {
-        res.writeHead(200, cssContent);
-        res.end(data);
-        // check data type
-        console.log(`
-        type fo data : ${typeof data}`);
-      }
+  } else if(req.method === "POST" && req.url === "/login") {
+    let body = '';    
+    req.on('data', (chunk) => {
+      body += chunk.toString();
     });
-  } else if (req.method === "POST" && req.url === "/") {
-    //check method and url
-    console.log(`
-    method check : ${req.method}
-    url check : ${req.url}`);
+    req.on('end', () => {
+    const parsedBody = queryString.parse(body); //요청 본문을 파싱
+    const { username, password} = parsedBody;
+
+      console.log(`form parsedBody : `, parsedBody);
+      console.log(`form username   : `, username);
+      console.log(`form password   : `, password);
+
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.end('login success!!');
+    });
   }
-});
+})
 
 // serv.listen
 let port = 2517;
