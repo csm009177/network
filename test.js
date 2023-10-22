@@ -9,15 +9,15 @@ const htmlContent = require('./mod/htmlContent');
 const docMaker = require("./mod/docMaker");
 const tagMaker = require("./mod/tagMaker");
 const formMaker = require('./mod/tagMaker');
+const basic = require('./mod/tagMaker');
 
 // make tag
-let tag2 = tagMaker('div', 'style', formMaker());
+let tag1 = tagMaker('div', basic(), formMaker());
+let tag2 = tagMaker('div', basic(), tag1);
 
-let tag1 = tagMaker('div', 'style', 'content');
-// let all = tag1 + tag2;
 // console.log(tag)
 // make doc`
-let doc = docMaker('testpage', tag2+tag1);
+let doc = docMaker('testpage', tag2);
 // console.log(doc)
 
 
