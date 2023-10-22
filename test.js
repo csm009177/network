@@ -17,6 +17,7 @@ let tag2 = tagMaker('div', 'style',
   <input type="password" name="password" placeholder="password"> <br><br>
   <input type="submit" value="Login">     
 </form>`);
+console.log(`★ tag2 : ${tag2}`)
 let tag1 = tagMaker('div', 'style', 'content');
 // let all = tag1 + tag2;
 // console.log(tag)
