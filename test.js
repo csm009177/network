@@ -10,12 +10,18 @@ const docMaker = require("./mod/docMaker");
 const tagMaker = require("./mod/tagMaker");
 
 // make tag
-let tag2 = tagMaker('div', 'style', 'content');
+let tag2 = tagMaker('div', 'style', 
+`<form action="/login" method="GET">
+  Username:<br>
+  <input type="text" name="Username" placeholder="User name"><br>
+  <input type="password" name="password" placeholder="password"> <br><br>
+  <input type="submit" value="Login">     
+</form>`);
 let tag1 = tagMaker('div', 'style', 'content');
-let all = tag1 + tag2
+// let all = tag1 + tag2;
 // console.log(tag)
 // make doc`
-let doc = docMaker('testpage', all);
+let doc = docMaker('testpage', tag2+tag1);
 // console.log(doc)
 
 
