@@ -15,12 +15,11 @@ const basic = require('./mod/tagMaker');
 let tag1 = tagMaker('div', basic(), formMaker());
 let tag2 = tagMaker('div', basic(), tag1);
 
-// console.log(tag)
-// make doc`
+// make doc
 let doc = docMaker('testpage', tag2);
-// console.log(doc)
 
 
+// make server
 let serv = http.createServer((req, res)=> {
   if(req.method==='GET'){
     console.log(req.method);
@@ -29,7 +28,12 @@ let serv = http.createServer((req, res)=> {
   }
 })
 
+// port num
 let port = 2517;
+
+// server listen
 serv.listen(port, () => {
-  console.log(`http://localhost:${port}`);
+  console.log(`
+please click under link↓ 
+http://localhost:${port}`);
 });
